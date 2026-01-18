@@ -88,7 +88,7 @@ export default function CTASection() {
               className="cta-button text-lg md:text-xl group relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-3">
-                Reveal the Full Story
+                See the Product Now!!
                 <svg 
                   className="w-6 h-6 transition-transform group-hover:translate-x-2" 
                   fill="none" 
@@ -101,13 +101,9 @@ export default function CTASection() {
               {/* Shimmer effect */}
               <div className="absolute inset-0 animate-shimmer opacity-30" />
             </a>
-
-            <p className="text-sm text-muted-foreground">
-              Risk-free exploration • 60-day satisfaction promise
-            </p>
           </motion.div>
 
-          {/* Trust badges */}
+          {/* Trust badges - only science/quality related */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
@@ -118,20 +114,19 @@ export default function CTASection() {
               <svg className="w-5 h-5 text-electric" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Secure Checkout</span>
+              <span>FDA-Registered Facility</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <svg className="w-5 h-5 text-electric" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Free Shipping</span>
+              <span>GMP Certified</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <svg className="w-5 h-5 text-electric" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.344c2.672 0 4.011-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.168 1.169a4 4 0 01-2.278.539H8.231a4 4 0 01-2.278-.54l1.168-1.168A3 3 0 008 8.172z" clipRule="evenodd" />
               </svg>
-              <span>60-Day Guarantee</span>
+              <span>100% Natural</span>
             </div>
           </motion.div>
         </motion.div>

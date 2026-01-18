@@ -27,34 +27,6 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-6 mb-8"
-          >
-            <a 
-              href="#privacy" 
-              className="text-sm text-muted-foreground hover:text-electric transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a 
-              href="#terms" 
-              className="text-sm text-muted-foreground hover:text-electric transition-colors"
-            >
-              Terms of Use
-            </a>
-            <a 
-              href="#contact" 
-              className="text-sm text-muted-foreground hover:text-electric transition-colors"
-            >
-              Contact
-            </a>
-          </motion.div>
-
           {/* Disclaimer */}
           <motion.div
             initial={{ opacity: 0 }}
