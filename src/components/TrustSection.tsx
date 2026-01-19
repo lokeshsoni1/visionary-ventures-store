@@ -16,13 +16,13 @@ const trustPoints = [
   {
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 32 32" stroke="currentColor">
-        <rect x="6" y="8" width="20" height="16" rx="2" strokeWidth="2" className="text-electric" />
-        <path d="M10 12h12M10 16h8M10 20h10" strokeWidth="2" className="text-cosmic opacity-70" strokeLinecap="round" />
-        <circle cx="24" cy="20" r="2" className="fill-cosmic" />
+        <path d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16 9.4 4 16 4z" strokeWidth="2" className="text-electric" />
+        <path d="M12 12c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2-1.5 3-4 4" strokeWidth="2" className="text-cosmic" strokeLinecap="round" />
+        <circle cx="16" cy="22" r="1.5" className="fill-cosmic" />
       </svg>
     ),
-    title: "FDA-Registered Facility",
-    description: "Manufactured in state-of-the-art, FDA-registered facilities following strict quality protocols."
+    title: "100% Natural Formula",
+    description: "No artificial fillers, synthetic additives, or questionable ingredients—just pure, natural support."
   },
   {
     icon: (
@@ -32,19 +32,19 @@ const trustPoints = [
         <path d="M12 6l8 0M12 26l8 0" strokeWidth="2" className="text-electric opacity-50" strokeLinecap="round" />
       </svg>
     ),
-    title: "GMP Certified",
-    description: "Every batch meets rigorous Good Manufacturing Practice standards for purity and potency."
+    title: "Ethically Sourced Ingredients",
+    description: "Every ingredient is carefully selected from trusted natural sources with full transparency."
   },
   {
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 32 32" stroke="currentColor">
-        <path d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16 9.4 4 16 4z" strokeWidth="2" className="text-electric" />
-        <path d="M12 12c0-2.2 1.8-4 4-4s4 1.8 4 4c0 2-1.5 3-4 4" strokeWidth="2" className="text-cosmic" strokeLinecap="round" />
-        <circle cx="16" cy="22" r="1.5" className="fill-cosmic" />
+        <rect x="6" y="8" width="20" height="16" rx="2" strokeWidth="2" className="text-electric" />
+        <path d="M10 12h12M10 16h8M10 20h10" strokeWidth="2" className="text-cosmic opacity-70" strokeLinecap="round" />
+        <circle cx="24" cy="20" r="2" className="fill-cosmic" />
       </svg>
     ),
-    title: "100% Natural Formula",
-    description: "No artificial fillers, synthetic additives, or questionable ingredients—just pure, natural support."
+    title: "Pure Natural Compounds",
+    description: "Formulated with pure, natural compounds designed to support your cognitive potential safely."
   }
 ];
 
@@ -69,10 +69,10 @@ export default function TrustSection() {
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
             <span className="text-foreground">Built on </span>
-            <span className="gradient-text">Science & Trust</span>
+            <span className="gradient-text">Science & Nature</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We don't cut corners. Every aspect of our formula meets the highest standards of quality and transparency.
+            We don't cut corners. Every aspect of our formula meets the highest standards of natural purity and transparency.
           </p>
         </motion.div>
 
@@ -107,7 +107,7 @@ export default function TrustSection() {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground italic">
-            But why are top researchers and elite performers buzzing about this? 
+            But why are top performers and wellness enthusiasts buzzing about this? 
             <span className="text-electric"> See real stories below.</span>
           </p>
         </motion.div>
