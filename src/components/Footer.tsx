@@ -27,20 +27,24 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Disclaimer */}
+          {/* Enhanced Disclaimer with glow effect */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-card rounded-xl p-4 mb-8 max-w-3xl"
+            className="relative mb-8 max-w-3xl"
           >
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              <strong>Disclaimer:</strong> This website is for informational purposes only and is not intended 
-              to provide medical advice. These statements have not been evaluated by the Food and Drug Administration. 
-              This product is not intended to diagnose, treat, cure, or prevent any disease. Always consult with a 
-              qualified healthcare professional before starting any supplement regimen.
-            </p>
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-electric/20 via-cosmic/20 to-electric/20 blur-sm animate-pulse" />
+            <div className="relative glass-card rounded-xl p-5 border border-electric/30">
+              <p className="text-sm text-foreground leading-relaxed font-medium">
+                <span className="text-electric font-bold">Disclaimer:</span> This site is for informational purposes only. 
+                Visionary Ventures promotes this product but provides no medical guarantees or claims. 
+                It is not intended to diagnose, treat, cure, or prevent any disease. 
+                Always consult your doctor or healthcare professional before use for personalized advice. 
+                Results may vary.
+              </p>
+            </div>
           </motion.div>
 
           {/* Copyright */}
@@ -52,7 +56,7 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-sm text-muted-foreground mb-2">
-              © 2026 Visionary Ventures. All rights reserved.
+              © 2026 Visionary Ventures.
             </p>
             <p className="text-xs text-muted-foreground/60">
               Powered by <span className="gradient-text font-medium">Visionary Ventures</span>
