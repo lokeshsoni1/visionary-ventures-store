@@ -84,7 +84,9 @@ export default function CTASection() {
             className="flex flex-col items-center gap-6"
           >
             <a
-              href="#"
+              href="https://pinealguardianvip.com/ds/indexts.php#aff=VisionaryVentures001"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button text-lg md:text-xl group relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-3">
