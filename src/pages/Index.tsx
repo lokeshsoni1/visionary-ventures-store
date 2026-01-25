@@ -6,14 +6,10 @@ import TrustSection from '../components/TrustSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
-import ParticleField from '../components/ParticleField';
 
 const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      {/* Global particle background - lightweight */}
-      <ParticleField />
-      
       {/* Sections */}
       <HeroSection />
       <ProductSection />
