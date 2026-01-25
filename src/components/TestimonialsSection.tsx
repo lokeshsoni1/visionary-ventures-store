@@ -94,12 +94,12 @@ export default function TestimonialsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Auto-scroll effect
+  // Faster auto-scroll effect (40-50px/sec)
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    const scrollSpeed = 0.5; // pixels per frame (~30px/sec at 60fps)
+    const scrollSpeed = 0.8; // Increased speed (~48px/sec at 60fps)
     let animationId: number;
     let lastTime = 0;
 
@@ -154,7 +154,7 @@ export default function TestimonialsSection() {
         {/* Auto-scrolling testimonials container */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-hidden pb-4"
+          className="flex gap-6 overflow-x-hidden pb-4 will-change-scroll"
           style={{ scrollBehavior: 'auto' }}
         >
           {scrollingTestimonials.map((testimonial, index) => (

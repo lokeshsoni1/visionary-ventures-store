@@ -1,4 +1,3 @@
-import { Suspense, lazy } from 'react';
 import HeroSection from '../components/HeroSection';
 import ProductSection from '../components/ProductSection';
 import ProblemSection from '../components/ProblemSection';
@@ -7,17 +6,13 @@ import TrustSection from '../components/TrustSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
-
-// Lazy load the heavy 3D particle field
-const ParticleField = lazy(() => import('../components/ParticleField'));
+import ParticleField from '../components/ParticleField';
 
 const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      {/* Global particle background */}
-      <Suspense fallback={null}>
-        <ParticleField />
-      </Suspense>
+      {/* Global particle background - lightweight */}
+      <ParticleField />
       
       {/* Sections */}
       <HeroSection />

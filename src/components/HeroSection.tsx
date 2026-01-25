@@ -1,11 +1,24 @@
 import { motion } from 'framer-motion';
-import NeuralNetwork3D from './NeuralNetwork3D';
+import brainBackground from '@/assets/brain-background.jpg';
 
 export default function HeroSection() {
   return (
     <section className="section-container relative min-h-screen">
-      {/* 3D Neural Network Background */}
-      <NeuralNetwork3D />
+      {/* Static Blurred Brain Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${brainBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(8px)',
+          transform: 'scale(1.05)',
+        }}
+      />
+      
+      {/* Dark Overlay for text readability */}
+      <div className="absolute inset-0 bg-background/70 z-5" />
       
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none z-10" />
