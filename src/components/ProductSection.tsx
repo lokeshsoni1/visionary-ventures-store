@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Product3D from './Product3D';
+import StaticProductImage from './StaticProductImage';
 
 export default function ProductSection() {
   const ref = useRef(null);
@@ -13,14 +13,14 @@ export default function ProductSection() {
       <div className="absolute inset-0 bg-gradient-radial from-cosmic/10 via-transparent to-transparent pointer-events-none" />
       
       <div className="relative z-10 w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        {/* 3D Product */}
+        {/* Static Product Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="order-2 lg:order-1"
         >
-          <Product3D />
+          <StaticProductImage />
         </motion.div>
         
         {/* Content */}
