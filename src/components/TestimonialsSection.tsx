@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    const scrollSpeed = 0.8; // Increased speed (~48px/sec at 60fps)
+    const scrollSpeed = 1.25; // Further increased speed (~75px/sec at 60fps)
     let animationId: number;
     let lastTime = 0;
 
