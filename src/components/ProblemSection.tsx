@@ -73,13 +73,17 @@ export default function ProblemSection() {
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
-              initial={{ opacity: 0, y: 40, rotateX: 10 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="glass-card-hover rounded-2xl p-8 text-center perspective-1000"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.75, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6 }}
+              className="glass-card-hover premium-card rounded-2xl p-8 text-center group"
             >
               <div className="mb-6 flex justify-center">
-                <div className={`p-4 rounded-2xl bg-${problem.color}/10 animate-float`} style={{ animationDelay: `${index * 0.5}s` }}>
+                <div
+                  className={`p-4 rounded-2xl bg-${problem.color}/10 animate-float transition-all duration-500 group-hover:scale-110`}
+                  style={{ animationDelay: `${index * 0.5}s` }}
+                >
                   {problem.icon}
                 </div>
               </div>
