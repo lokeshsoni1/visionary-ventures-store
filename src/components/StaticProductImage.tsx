@@ -5,9 +5,18 @@ export default function StaticProductImage() {
   return (
     <div className="w-full flex justify-center items-center py-8">
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: [0, -8, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+          scale: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+          y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+        }}
+        whileHover={{ scale: 1.03 }}
         className="relative"
       >
         {/* Outer glow layer */}
