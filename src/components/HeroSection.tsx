@@ -54,24 +54,24 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 font-light italic"
+          className="text-lg md:text-2xl text-zinc-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+          style={{ lineHeight: 1.75 }}
         >
-          A groundbreaking discovery hidden in plain sight—backed by cutting-edge research 
-          and embraced by elite performers worldwide.
+          A breakthrough natural formula hidden in plain sight—crafted to support mental clarity and healthy cognitive function.
         </motion.p>
         
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col gap-5 justify-center items-center"
         >
           <a 
             href="#product" 
             className="cta-button text-lg group"
           >
             <span className="flex items-center gap-2">
-              Unlock the Secret Now
+              Discover How It Works
               <svg 
                 className="w-5 h-5 transition-transform group-hover:translate-x-1" 
                 fill="none" 
@@ -82,17 +82,18 @@ export default function HeroSection() {
               </svg>
             </span>
           </a>
-          
-          <motion.a
-            href="#science"
-            className="px-8 py-4 font-display font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
+
+          {/* Scarcity Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/5 backdrop-blur-sm text-amber-200/90 text-xs sm:text-sm font-medium tracking-wide"
+            style={{ boxShadow: '0 0 24px hsl(45 100% 55% / 0.15)' }}
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-            Discover the Science
-          </motion.a>
+            <span aria-hidden>⚠️</span>
+            <span>High Demand: Limited Stock Available Globally</span>
+          </motion.div>
         </motion.div>
         
         {/* Scroll Indicator */}

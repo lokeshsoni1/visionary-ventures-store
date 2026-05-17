@@ -90,7 +90,7 @@ export default function CTASection() {
               className="cta-button text-lg md:text-xl group relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-3">
-                See the Product Now!!
+                View Pineal Guardian On Official Website
                 <svg 
                   className="w-6 h-6 transition-transform group-hover:translate-x-2" 
                   fill="none" 

@@ -86,10 +86,10 @@ export default function ProblemSection() {
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
                 {problem.title}
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-zinc-300 mb-4 leading-relaxed">
                 {problem.description}
               </p>
-              <p className="text-sm text-cosmic italic">
+              <p className="text-sm md:text-base italic font-medium text-indigo-200/90" style={{ textShadow: '0 0 18px hsl(230 80% 70% / 0.35)' }}>
                 What if the root cause is something you've never considered?
               </p>
             </motion.div>
