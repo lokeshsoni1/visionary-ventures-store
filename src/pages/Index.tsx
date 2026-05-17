@@ -10,7 +10,11 @@ import Footer from '../components/Footer';
 const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+      {/* Ambient cinematic background — slow-drifting aurora */}
+      <div className="ambient-bg" aria-hidden="true" />
+
       {/* Sections */}
+      <div className="relative z-10">
       <HeroSection />
       <ProductSection />
       <ProblemSection />
@@ -19,6 +23,7 @@ const Index = () => {
       <TestimonialsSection />
       <CTASection />
       <Footer />
+      </div>
     </main>
   );
 };
