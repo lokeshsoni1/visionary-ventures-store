@@ -40,14 +40,14 @@ export default function ProductSection() {
             <span className="gradient-text">The Key to Neural Optimization</span>
           </h2>
           
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg text-zinc-300 mb-8" style={{ lineHeight: 1.8, maxWidth: '640px' }}>
             This isn't your average brain booster. Our proprietary formula targets 
             the recently discovered neural pathways that control focus, memory retention, 
             and mental clarity—naturally supporting your cognitive potential.
           </p>
           
-          <div className="glass-card rounded-2xl p-6 mb-8">
-            <p className="text-electric italic font-medium text-center lg:text-left">
+          <div className="rounded-2xl p-6 mb-8 border border-electric/25 bg-electric/[0.04] backdrop-blur-sm" style={{ boxShadow: '0 0 30px hsl(195 100% 50% / 0.08)' }}>
+            <p className="text-electric/95 italic font-medium text-center lg:text-left leading-relaxed">
               "What if the missing piece to unlocking your full mental capacity 
               has been hiding in nature all along?"
             </p>
