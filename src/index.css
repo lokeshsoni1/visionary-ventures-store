@@ -382,7 +382,9 @@
   .animate-spin-slow {
     animation: none !important;
   }
+}
 
+@layer components {
   /* Particle Effect Background */
   .particles-bg {
     @apply absolute inset-0 overflow-hidden pointer-events-none;
