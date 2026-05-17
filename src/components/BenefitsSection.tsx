@@ -1,46 +1,25 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Moon, BrainCircuit, Target } from 'lucide-react';
 
 const benefits = [
   {
     title: "Deeper Sleep",
     description: "Fall asleep faster, wake up refreshed and ready to conquer.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 40 40" stroke="currentColor">
-        <circle cx="20" cy="20" r="12" strokeWidth="2" className="text-cosmic" />
-        <path d="M20 8c-6.6 0-12 5.4-12 12s5.4 12 12 12c0-6.6-5.4-12-12-12" strokeWidth="2" className="text-electric" fill="none" />
-        <circle cx="26" cy="14" r="1.5" className="fill-electric" />
-        <circle cx="30" cy="18" r="1" className="fill-electric opacity-70" />
-      </svg>
-    ),
+    icon: <Moon className="w-9 h-9 text-electric" strokeWidth={1.5} style={{ filter: 'drop-shadow(0 0 10px hsl(195 100% 50% / 0.6))' }} />,
     gradient: "from-cosmic to-electric"
   },
   {
     title: "Sharper Memory",
     description: "Recall names, facts, and details with ease and confidence.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 40 40" stroke="currentColor">
-        <rect x="8" y="8" width="10" height="10" rx="2" strokeWidth="2" className="text-electric" />
-        <rect x="22" y="8" width="10" height="10" rx="2" strokeWidth="2" className="text-electric" />
-        <rect x="8" y="22" width="10" height="10" rx="2" strokeWidth="2" className="text-electric" />
-        <rect x="22" y="22" width="10" height="10" rx="2" strokeWidth="2" className="text-cosmic" />
-        <path d="M18 13h4M13 18v4M27 18v4M18 27h4" strokeWidth="2" className="text-cosmic opacity-50" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <BrainCircuit className="w-9 h-9 text-electric" strokeWidth={1.5} style={{ filter: 'drop-shadow(0 0 10px hsl(271 76% 60% / 0.6))' }} />,
     gradient: "from-electric to-cosmic"
   },
   {
     title: "Laser Focus",
     description: "Zone in like never before. Eliminate distractions naturally.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 40 40" stroke="currentColor">
-        <circle cx="20" cy="20" r="14" strokeWidth="2" className="text-electric opacity-30" />
-        <circle cx="20" cy="20" r="9" strokeWidth="2" className="text-electric opacity-60" />
-        <circle cx="20" cy="20" r="4" strokeWidth="2" className="text-electric" />
-        <circle cx="20" cy="20" r="1.5" className="fill-cosmic" />
-      </svg>
-    ),
+    icon: <Target className="w-9 h-9 text-electric" strokeWidth={1.5} style={{ filter: 'drop-shadow(0 0 10px hsl(195 100% 50% / 0.6))' }} />,
     gradient: "from-cosmic to-electric"
   },
   {
