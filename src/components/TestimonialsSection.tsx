@@ -75,22 +75,63 @@ const testimonials: Testimonial[] = [
     rating: 5,
     initials: "JT",
   },
+  {
+    name: "Karen M.",
+    location: "Nashville, Tennessee",
+    package: "Purchased: 6-Bottle Package",
+    content:
+      "I run into people at church and finally remember their names again. Small thing, but it means everything. I feel like myself in conversations now.",
+    rating: 5,
+    initials: "KM",
+  },
+  {
+    name: "Thomas G.",
+    location: "Minneapolis, Minnesota",
+    package: "Purchased: 3-Bottle Package",
+    content:
+      "My overthinking used to keep me up half the night. Now my mind settles down. I sleep deeper and wake up with a calm, clear head — that's the biggest change.",
+    rating: 5,
+    initials: "TG",
+  },
+  {
+    name: "Sandra K.",
+    location: "San Diego, California",
+    package: "Purchased: 6-Bottle Package",
+    content:
+      "The brain fog I'd accepted as normal at my age is gone. Conversations flow, words come easier, and I'm actually engaged in long meetings again.",
+    rating: 5,
+    initials: "SK",
+  },
+  {
+    name: "Gregory A.",
+    location: "Pittsburgh, Pennsylvania",
+    package: "Purchased: 3-Bottle Package",
+    content:
+      "I was skeptical, honestly. But by the fourth week my focus during work felt sharper than it had in a decade. No crash, no buzz — just clear thinking.",
+    rating: 5,
+    initials: "GA",
+  },
 ];
 
 function TestimonialCard({ t, index }: { t: Testimonial; index: number }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.55, delay: Math.min(index * 0.08, 0.4), ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-2xl p-6 md:p-7 border border-white/[0.06] bg-white/[0.025] backdrop-blur-md hover:border-electric/30 transition-colors duration-300"
+      transition={{ duration: 0.7, delay: Math.min(index * 0.07, 0.4), ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
+      className="premium-card group rounded-2xl p-6 md:p-7 border border-white/[0.06] bg-white/[0.025] backdrop-blur-md hover:border-electric/30"
       style={{ boxShadow: '0 10px 40px -20px rgba(0,0,0,0.6)' }}
     >
       <div className="flex items-center gap-2 mb-4">
         <div className="flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
           {Array.from({ length: t.rating }).map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+            <Star
+              key={i}
+              className="w-4 h-4 fill-amber-400 text-amber-400 transition-transform duration-500"
+              style={{ transitionDelay: `${i * 40}ms` }}
+            />
           ))}
         </div>
         <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-300/90 ml-2">
@@ -104,7 +145,7 @@ function TestimonialCard({ t, index }: { t: Testimonial; index: number }) {
       </p>
 
       <div className="flex items-center gap-3 pt-5 border-t border-white/[0.05]">
-        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-electric/80 to-cosmic/80 flex items-center justify-center text-background font-semibold text-sm flex-shrink-0">
+        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-electric/80 to-cosmic/80 flex items-center justify-center text-background font-semibold text-sm flex-shrink-0 transition-all duration-500 group-hover:shadow-[0_0_24px_hsl(195_100%_50%/0.45)] group-hover:scale-105">
           {t.initials}
         </div>
         <div className="min-w-0">
