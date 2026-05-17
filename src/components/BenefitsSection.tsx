@@ -89,18 +89,20 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="glass-card rounded-2xl p-6 group cursor-pointer perspective-1000"
+              initial={{ opacity: 0, y: 32 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -8 }}
+              className="glass-card premium-card rounded-2xl p-6 group cursor-pointer"
             >
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.gradient} p-0.5 mb-5 group-hover:animate-pulse-glow transition-all`}>
+              <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.gradient} p-0.5 mb-5 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_hsl(195_100%_50%/0.5)]`}>
                 <div className="w-full h-full rounded-xl bg-card flex items-center justify-center">
-                  {benefit.icon}
+                  <div className="transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-0.5">
+                    {benefit.icon}
+                  </div>
                 </div>
               </div>
-              <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-electric transition-colors">
+              <h3 className="font-display text-lg font-bold text-foreground mb-2 transition-colors duration-300 group-hover:text-electric">
                 {benefit.title}
               </h3>
               <p className="text-sm text-muted-foreground">

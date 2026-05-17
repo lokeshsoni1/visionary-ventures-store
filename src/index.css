@@ -108,16 +108,53 @@
   }
 
   .glass-card-hover {
-    @apply glass-card transition-all duration-500;
+    @apply glass-card;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.5s ease,
+      box-shadow 0.5s ease;
+    will-change: transform;
   }
 
   .glass-card-hover:hover {
-    transform: translateY(-8px) rotateX(5deg);
-    border-color: hsl(var(--electric-blue) / 0.5);
-    box-shadow: 
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 0 40px hsl(var(--electric-blue) / 0.2),
+    transform: translateY(-6px);
+    border-color: hsl(var(--electric-blue) / 0.45);
+    box-shadow:
+      0 24px 60px -20px rgba(0, 0, 0, 0.6),
+      0 0 50px hsl(var(--electric-blue) / 0.18),
       inset 0 1px 0 hsl(var(--star-white) / 0.15);
+  }
+
+  /* Premium card — elegant lift + soft border glow */
+  .premium-card {
+    position: relative;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.5s ease,
+      box-shadow 0.6s ease;
+    will-change: transform;
+  }
+  .premium-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--electric-blue) / 0.0), hsl(var(--cosmic-purple) / 0.0));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease, background 0.5s ease;
+    pointer-events: none;
+  }
+  .premium-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 24px 60px -24px rgba(0, 0, 0, 0.65),
+      0 0 40px hsl(var(--electric-blue) / 0.14);
+  }
+  .premium-card:hover::after {
+    opacity: 1;
+    background: linear-gradient(135deg, hsl(var(--electric-blue) / 0.55), hsl(var(--cosmic-purple) / 0.55));
   }
 
   /* Glow Effects */
@@ -233,6 +270,29 @@
     }
   }
 
+  @keyframes breathe {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.03); }
+  }
+
+  @keyframes aurora-drift {
+    0%   { transform: translate3d(-6%, -4%, 0) scale(1); }
+    50%  { transform: translate3d(6%, 4%, 0) scale(1.08); }
+    100% { transform: translate3d(-6%, -4%, 0) scale(1); }
+  }
+
+  @keyframes gradient-pan {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  .animate-breathe { animation: breathe 4.5s ease-in-out infinite; }
+  .animate-aurora { animation: aurora-drift 22s ease-in-out infinite; }
+  .animate-gradient-pan {
+    background-size: 200% 200%;
+    animation: gradient-pan 8s ease-in-out infinite;
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -260,6 +320,71 @@
     animation: rotate-slow 20s linear infinite;
   }
 
+  /* Ambient site background — slow-drifting aurora blobs */
+  .ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .ambient-bg::before,
+  .ambient-bg::after {
+    content: '';
+    position: absolute;
+    width: 60vmax;
+    height: 60vmax;
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.35;
+    will-change: transform;
+  }
+  .ambient-bg::before {
+    top: -20%;
+    left: -15%;
+    background: radial-gradient(circle, hsl(var(--electric-blue) / 0.35), transparent 60%);
+    animation: aurora-drift 24s ease-in-out infinite;
+  }
+  .ambient-bg::after {
+    bottom: -25%;
+    right: -15%;
+    background: radial-gradient(circle, hsl(var(--cosmic-purple) / 0.32), transparent 60%);
+    animation: aurora-drift 30s ease-in-out infinite reverse;
+  }
+
+  /* Premium CTA refinement — softer easing, layered glow */
+  .cta-button {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.5s ease;
+  }
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: radial-gradient(120% 80% at 50% 0%, hsl(var(--star-white) / 0.25), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .cta-button:hover::after { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-aurora,
+  .animate-gradient-pan,
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow,
+  .animate-shimmer,
+  .animate-rotate-slow,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
+
+@layer components {
   /* Particle Effect Background */
   .particles-bg {
     @apply absolute inset-0 overflow-hidden pointer-events-none;

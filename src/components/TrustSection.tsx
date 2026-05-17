@@ -80,16 +80,19 @@ export default function TrustSection() {
           {trustPoints.map((point, index) => (
             <motion.div
               key={point.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card rounded-2xl p-6 flex gap-5"
+              initial={{ opacity: 0, y: 28, x: index % 2 === 0 ? -16 : 16 }}
+              animate={isInView ? { opacity: 1, y: 0, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6 }}
+              className="glass-card premium-card rounded-2xl p-6 flex gap-5 group"
             >
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-electric/20 to-cosmic/20 flex items-center justify-center">
-                {point.icon}
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-electric/20 to-cosmic/20 flex items-center justify-center transition-all duration-500 group-hover:from-electric/35 group-hover:to-cosmic/35 group-hover:scale-110">
+                <div className="transition-transform duration-500 group-hover:-rotate-6">
+                  {point.icon}
+                </div>
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                <h3 className="font-display text-lg font-bold text-foreground mb-2 transition-colors duration-300 group-hover:text-electric">
                   {point.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">

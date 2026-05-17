@@ -83,16 +83,19 @@ export default function CTASection() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col items-center gap-6"
           >
-            <a
+            <motion.a
               href="https://pinealguardianvip.com/ds/indexts.php#aff=VisionaryVentures001"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button text-lg md:text-xl group relative overflow-hidden"
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
             >
               <span className="relative z-10 flex items-center gap-3">
                 View Pineal Guardian On Official Website
-                <svg 
-                  className="w-6 h-6 transition-transform group-hover:translate-x-2" 
+                <svg
+                  className="w-6 h-6 transition-transform duration-500 ease-out group-hover:translate-x-2"
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -102,7 +105,7 @@ export default function CTASection() {
               </span>
               {/* Shimmer effect */}
               <div className="absolute inset-0 animate-shimmer opacity-30" />
-            </a>
+            </motion.a>
           </motion.div>
 
           {/* Trust badges - only natural/science related */}
