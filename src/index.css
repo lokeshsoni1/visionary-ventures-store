@@ -75,7 +75,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Lenis controls smooth scrolling — native smooth disabled to avoid conflicts */
   }
 
   body {
