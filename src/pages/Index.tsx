@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   const ambientRef = useRef<HTMLDivElement | null>(null);
+  const lightRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -30,17 +31,38 @@ const Index = () => {
     };
     rafId = requestAnimationFrame(raf);
 
-    let targetX = 0, targetY = 0, curX = 0, curY = 0, parallaxY = 0, parallaxRaf = 0;
+    // Mouse-reactive ambient depth (two layers, water-like delayed follow-through)
+    let targetX = 0, targetY = 0;
+    let curX = 0, curY = 0;       // fast layer (ambient gradients)
+    let curX2 = 0, curY2 = 0;     // slower layer (mouse light)
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let lx = mx, ly = my, lx2 = mx, ly2 = my;
+    let parallaxY = 0, parallaxRaf = 0;
     const onScroll = () => { parallaxY = window.scrollY * 0.06; };
     const onMouse = (e: MouseEvent) => {
-      targetX = (e.clientX / window.innerWidth - 0.5) * 18;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 18;
+      targetX = (e.clientX / window.innerWidth - 0.5) * 28;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 28;
+      mx = e.clientX; my = e.clientY;
     };
     const tick = () => {
-      curX += (targetX - curX) * 0.06;
-      curY += (targetY - curY) * 0.06;
+      // luxury easing — slower lerp for water-like delayed flow
+      curX += (targetX - curX) * 0.045;
+      curY += (targetY - curY) * 0.045;
+      curX2 += (targetX - curX2) * 0.025;
+      curY2 += (targetY - curY2) * 0.025;
+      lx  += (mx - lx)  * 0.10;
+      ly  += (my - ly)  * 0.10;
+      lx2 += (mx - lx2) * 0.04;
+      ly2 += (my - ly2) * 0.04;
       if (ambientRef.current) {
-        ambientRef.current.style.transform = `translate3d(${curX.toFixed(2)}px, ${(curY - parallaxY).toFixed(2)}px, 0)`;
+        ambientRef.current.style.transform =
+          `translate3d(${curX.toFixed(2)}px, ${(curY - parallaxY).toFixed(2)}px, 0)`;
+      }
+      if (lightRef.current) {
+        lightRef.current.style.setProperty('--mx',  `${lx}px`);
+        lightRef.current.style.setProperty('--my',  `${ly}px`);
+        lightRef.current.style.setProperty('--mx2', `${lx2}px`);
+        lightRef.current.style.setProperty('--my2', `${ly2}px`);
       }
       parallaxRaf = requestAnimationFrame(tick);
     };
@@ -61,6 +83,8 @@ const Index = () => {
     <main className="relative min-h-screen overflow-x-hidden">
       {/* Ambient cinematic background — slow-drifting aurora */}
       <div ref={ambientRef} className="ambient-bg" aria-hidden="true" />
+      {/* Mouse-reactive cinematic light layer */}
+      <div ref={lightRef} className="mouse-light hidden md:block" aria-hidden="true" />
 
       {/* Sections */}
       <div className="relative z-10">
