@@ -124,26 +124,6 @@ export default function HeroSection() {
             <span>High Demand: Limited Stock Available Globally</span>
           </motion.div>
         </motion.div>
-        
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2"
-          >
-            <motion.div 
-              className="w-1.5 h-1.5 rounded-full bg-electric"
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
