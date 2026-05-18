@@ -82,7 +82,10 @@ export default function ProblemSection() {
               <div className="mb-6 flex justify-center">
                 <div
                   className={`p-4 rounded-2xl bg-${problem.color}/10 animate-float-slow transition-all duration-700 group-hover:scale-105`}
-                  style={{ animationDelay: `${index * 0.8}s` }}
+                  style={{
+                    animationDelay: `${index * 1.2}s`,
+                    animationDuration: '16s',
+                  }}
                 >
                   {problem.icon}
                 </div>
