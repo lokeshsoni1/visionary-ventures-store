@@ -23,7 +23,7 @@ export default function HeroSection() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          filter: 'blur(8px)',
+          filter: 'blur(4px)',
         }}
       />
       
