@@ -65,21 +65,12 @@ export default function StaticProductImage() {
           </div>
         </div>
         
-        {/* Subtle animated pulse effect */}
-        <motion.div
-          className="absolute inset-0 rounded-3xl pointer-events-none"
+        {/* Static soft glow halo — replaces the previously animated pulse for better mobile perf */}
+        <div
+          className="absolute inset-0 rounded-3xl pointer-events-none opacity-40"
           style={{
             background: 'linear-gradient(135deg, rgba(0, 191, 255, 0.2), rgba(138, 43, 226, 0.2))',
-            filter: 'blur(30px)',
-          }}
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
+            filter: 'blur(24px)',
           }}
         />
       </motion.div>
