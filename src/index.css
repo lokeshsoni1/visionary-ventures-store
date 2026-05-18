@@ -413,6 +413,27 @@
   }
 }
 
+/* Mobile performance — reduce GPU-heavy effects on phones */
+@media (max-width: 767px) {
+  .ambient-bg::before,
+  .ambient-bg::after {
+    filter: blur(60px);
+    opacity: 0.25;
+    animation-duration: 40s;
+  }
+  .mouse-light { display: none !important; }
+  .glass-card,
+  .glass-card-hover {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .animate-breathe,
+  .animate-pulse-glow,
+  .animate-shimmer {
+    animation-duration: 8s;
+  }
+}
+
 @layer components {
   /* Particle Effect Background */
   .particles-bg {
