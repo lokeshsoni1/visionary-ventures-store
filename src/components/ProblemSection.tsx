@@ -75,14 +75,14 @@ export default function ProblemSection() {
               key={problem.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.75, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6 }}
+              transition={{ duration: 1.1, delay: index * 0.18, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }}
               className="glass-card-hover premium-card rounded-2xl p-8 text-center group"
             >
               <div className="mb-6 flex justify-center">
                 <div
-                  className={`p-4 rounded-2xl bg-${problem.color}/10 animate-float transition-all duration-500 group-hover:scale-110`}
-                  style={{ animationDelay: `${index * 0.5}s` }}
+                  className={`p-4 rounded-2xl bg-${problem.color}/10 animate-float-slow transition-all duration-700 group-hover:scale-105`}
+                  style={{ animationDelay: `${index * 0.8}s` }}
                 >
                   {problem.icon}
                 </div>
