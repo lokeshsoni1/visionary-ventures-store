@@ -335,7 +335,7 @@
     width: 60vmax;
     height: 60vmax;
     border-radius: 9999px;
-    filter: blur(120px);
+    filter: blur(80px);
     opacity: 0.35;
     will-change: transform;
   }
@@ -371,7 +371,7 @@
       );
     mix-blend-mode: screen;
     transition: opacity 0.6s ease;
-    will-change: background;
+    will-change: background-position;
   }
 
   /* Subtle perspective tilt container — used on premium cards */
