@@ -15,14 +15,18 @@ const Index = () => {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
     if (prefersReducedMotion) return;
 
+    // Lighter, snappier scroll on mobile; never smooth-scroll touch (native is faster)
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: isMobile ? 0.9 : 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      smoothTouch: false,
       touchMultiplier: 1.1,
-    });
+    } as ConstructorParameters<typeof Lenis>[0]);
 
     let rafId = 0;
     const raf = (time: number) => {
@@ -30,6 +34,14 @@ const Index = () => {
       rafId = requestAnimationFrame(raf);
     };
     rafId = requestAnimationFrame(raf);
+
+    // Skip mouse-reactive depth entirely on touch / mobile devices — pure GPU savings.
+    if (isCoarsePointer || isMobile) {
+      return () => {
+        cancelAnimationFrame(rafId);
+        lenis.destroy();
+      };
+    }
 
     // Mouse-reactive ambient depth (two layers, water-like delayed follow-through)
     let targetX = 0, targetY = 0;
