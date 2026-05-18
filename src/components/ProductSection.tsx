@@ -35,7 +35,9 @@ export default function ProductSection() {
           </span>
           
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="text-foreground">Not Just a Supplement—</span>
+            <span className="text-foreground">
+              Not Just a <span className="whitespace-nowrap">Supplement&nbsp;—</span>
+            </span>
             <br />
             <span className="gradient-text">The Key to Neural Optimization</span>
           </h2>
