@@ -93,6 +93,17 @@ export default function BenefitsSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -8 }}
+              onMouseMove={(e) => {
+                const el = e.currentTarget as HTMLDivElement;
+                const r = el.getBoundingClientRect();
+                const px = (e.clientX - r.left) / r.width - 0.5;
+                const py = (e.clientY - r.top) / r.height - 0.5;
+                el.style.transform = `perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg) translateY(-8px)`;
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = '';
+              }}
+              style={{ transition: 'transform 0.6s cubic-bezier(0.22,1,0.36,1)' }}
               className="glass-card premium-card rounded-2xl p-6 group cursor-pointer"
             >
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.gradient} p-0.5 mb-5 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_hsl(195_100%_50%/0.5)]`}>
