@@ -24,9 +24,8 @@ const Index = () => {
       duration: isMobile ? 0.9 : 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      smoothTouch: false,
       touchMultiplier: 1.1,
-    } as ConstructorParameters<typeof Lenis>[0]);
+    });
 
     let rafId = 0;
     const raf = (time: number) => {
