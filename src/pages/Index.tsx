@@ -19,9 +19,12 @@ const Index = () => {
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
     if (prefersReducedMotion) return;
 
-    // Lighter, snappier scroll on mobile; never smooth-scroll touch (native is faster)
+    // Mobile / touch: use native scrolling (faster, zero JS overhead) and skip parallax.
+    if (isCoarsePointer || isMobile) return;
+
+    // Desktop only: cinematic smooth scroll via Lenis
     const lenis = new Lenis({
-      duration: isMobile ? 0.9 : 1.1,
+      duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 1.1,
@@ -33,14 +36,6 @@ const Index = () => {
       rafId = requestAnimationFrame(raf);
     };
     rafId = requestAnimationFrame(raf);
-
-    // Skip mouse-reactive depth entirely on touch / mobile devices — pure GPU savings.
-    if (isCoarsePointer || isMobile) {
-      return () => {
-        cancelAnimationFrame(rafId);
-        lenis.destroy();
-      };
-    }
 
     // Mouse-reactive ambient depth (two layers, water-like delayed follow-through)
     let targetX = 0, targetY = 0;
