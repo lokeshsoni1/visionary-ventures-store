@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import brainBackground from '@/assets/brain-background.jpg';
 
 export default function HeroSection() {
+  // Use a flat structure with explicit spaces between coloured spans so that
+  // inline-block whitespace can never collapse on any browser/breakpoint.
   const headlineParts = [
-    { text: 'What If a ', className: 'text-foreground' },
+    { text: 'What If a', className: 'text-foreground' },
     { text: 'Secret Brain Switch', className: 'gradient-text text-glow' },
-    { text: ' Could Unlock ', className: 'text-foreground' },
+    { text: 'Could Unlock', className: 'text-foreground' },
     { text: 'Superhuman Focus', className: 'gradient-text-reverse text-glow-purple' },
-    { text: '?', className: 'text-foreground' },
   ];
 
   return (
@@ -47,22 +48,25 @@ export default function HeroSection() {
           </span>
         </motion.div>
         
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+        <h1 className="font-display text-[2rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight mb-8 text-balance">
           {headlineParts.map((part, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{
-                duration: 0.9,
-                delay: 0.45 + i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className={`inline-block ${part.className}`}
-            >
-              {part.text}
-            </motion.span>
+            <span key={i} className="inline">
+              <motion.span
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.25 + i * 0.09,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className={`inline-block ${part.className}`}
+              >
+                {part.text}
+              </motion.span>
+              {i < headlineParts.length - 1 && ' '}
+            </span>
           ))}
+          <span className="text-foreground">?</span>
         </h1>
         
         <motion.p
